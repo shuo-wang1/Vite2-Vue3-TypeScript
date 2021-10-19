@@ -1,0 +1,115 @@
+// 全局公共样式变量
+
+$base-color-blue: #124191;
+
+$base-color-red-3155: #ff3155;
+
+$baseMobileVw: 3.75;
+
+// 可以适应不同尺寸手机端
+@function px($npx) {
+  @return $npx/1920 * 100vw;
+}
+
+$base-font-ch: PingFangSC;
+
+$base-font-en: NokiaPureHeadline;
+
+$base-font-yaHei: MicrosoftYaHei;
+
+@mixin flex-wrap-center-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-column-center-center {
+  @include flex-wrap-center-center;
+  flex-direction: column;
+}
+
+@mixin flex-wrap-start-center {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+@mixin flex-column-start-center {
+  @include flex-wrap-start-center;
+  flex-direction: column;
+}
+
+@mixin flex-wrap-center-start {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+@mixin flex-column-center-start {
+  @include flex-wrap-center-start;
+  flex-direction: column;
+}
+
+@mixin flex-wrap-between-center {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@mixin flex-column-between-center {
+  @include flex-wrap-between-center;
+  flex-direction: column;
+}
+
+@mixin flex-wrap-start-end {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+@mixin flex-column-start-end {
+  @include flex-wrap-start-end;
+  flex-direction: column;
+}
+
+@mixin flex-wrap-center-end {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+@mixin flex-column-center-end {
+  @include flex-wrap-end-center;
+  flex-direction: column;
+}
+
+@mixin flex-wrap-start-start {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+@mixin flex-column-start-start {
+  @include flex-wrap-start-start;
+  flex-direction: column;
+}
+
+@mixin flex-wrap-between-start {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+@mixin flex-column-between-start {
+  @include flex-wrap-between-start;
+  flex-direction: column;
+}
+
+@mixin flex-wrap-end-center {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+@mixin flex-column-end-center {
+  @include flex-wrap-end-center;
+  flex-direction: column;
+}
