@@ -5,17 +5,13 @@
       <div class="wrap-header-user">
         <div class="wrap-header-user-avatar">
           <!-- <img :src="userData.avatar" alt=""> -->
-          <img :src="userData.avatar" alt="">
+          <img :src="userData.avatar" alt="" />
         </div>
         <div class="wrap-header-user-name">
-          {{userData.username}}
+          {{ userData.username }}
         </div>
-        <div class="wrap-header-user-line">
-          |
-        </div>
-        <div class="wrap-header-user-logout">
-          退出
-        </div>
+        <div class="wrap-header-user-line">|</div>
+        <div class="wrap-header-user-logout">退出</div>
       </div>
     </header>
   </div>
@@ -49,7 +45,7 @@ export default defineComponent({
 .wrap {
   width: 100%;
   &-header {
-    @include flex-wrap-between-center;
+    @include flex-layout(row, wrap, space-between, center);
     width: 100%;
     height: px(137);
     padding: 0 px(47);
@@ -60,7 +56,7 @@ export default defineComponent({
       color: #333;
     }
     &-user {
-      @include flex-wrap-end-center;
+      @include flex-layout(row, wrap, flex-end, center);
       font-size: px(17);
       font-family: Microsoft YaHei;
       font-weight: 400;

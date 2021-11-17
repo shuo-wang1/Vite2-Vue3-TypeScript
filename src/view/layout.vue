@@ -25,7 +25,6 @@ export default defineComponent({
 });
 </script>
 
-
 <style lang="scss" scoped>
 .layout {
   @include flex-column-start-center;
@@ -48,4 +47,3 @@ export default defineComponent({
   }
 }
 </style>
-

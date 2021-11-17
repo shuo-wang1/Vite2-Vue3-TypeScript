@@ -42,7 +42,7 @@ const router = createRouter({
   },
 });
 
-const whiteList = ['/campusLogin'];
+// const whiteList = ['/campusLogin'];
 
 // router.beforeEach((to, from, next) => {
 //   //  在跳转路由之前，先清除所有的请求

@@ -34,7 +34,7 @@ export default defineConfig({
     //     反向代理配置，注意rewrite写法，开始没看文档在这里踩了坑
     proxy: {
       '/api': {
-        target: 'http://tjanswer.xun-ao.com', //     代理接口
+        target: '', //     代理接口
         changeOrigin: true,
         secure: false,
         rewrite: (path) => path.replace(/^\/api/, ''),
