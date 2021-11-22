@@ -17,7 +17,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .index {
-  @include flex-layout(column, wrap, flex-start, center);
+  @include flex-layout(column, nowrap, flex-start, center);
   width: 100%;
   padding: px(30) 0;
   &-main {

@@ -27,7 +27,8 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .layout {
-  @include flex-column-start-center;
+  // @include flex-column-start-center;
+  @include flex-layout(column, wrap, flex-start, center);
   width: 100%;
   min-height: 100vh;
   background: #e0eafc; /* fallback for old browsers */
