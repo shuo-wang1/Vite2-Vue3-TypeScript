@@ -7,7 +7,6 @@ const routes: Array<RouteRecordRaw> = [
       return { path: '/home/index' };
     },
   },
-
   {
     path: '/layout',
     name: 'layout',
@@ -24,6 +23,7 @@ const routes: Array<RouteRecordRaw> = [
           import(/* webpackChunkName: "index" */ '../view/index/index.vue'),
         meta: {
           keepAlive: true, // 需要被缓存
+          title: '首页',
         },
       },
     ],
@@ -44,7 +44,12 @@ const router = createRouter({
 
 // const whiteList = ['/campusLogin'];
 
-// router.beforeEach((to, from, next) => {
+router.beforeEach((to, from, next) => {
+  if (to.meta.title) {
+    document.title = to.meta.title as string;
+  }
+  next();
+});
 //   //  在跳转路由之前，先清除所有的请求
 //   clearPending();
 //   // next();

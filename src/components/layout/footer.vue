@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer">王硕</footer>
+  <footer class="footer">R & D based on Vite2, Vue and TypeScript</footer>
 </template>
 
 <script lang="ts">
@@ -10,7 +10,6 @@ export default defineComponent({
   setup() {},
 });
 </script>
-
 
 <style lang="scss" scoped>
 .footer {

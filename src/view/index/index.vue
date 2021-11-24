@@ -1,6 +1,8 @@
 <template>
   <div class="index">
-    <main class="index-main"></main>
+    <main class="index-main">
+      <img src="../../assets/images/WechatIMG39.jpeg" alt="" />
+    </main>
   </div>
 </template>
 <script lang="ts">
@@ -26,5 +28,9 @@ export default defineComponent({
     padding: px(20);
     background-color: #ffffff;
   }
+}
+
+img {
+  width: 100%;
 }
 </style>

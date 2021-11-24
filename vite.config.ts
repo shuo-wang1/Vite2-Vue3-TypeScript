@@ -25,6 +25,19 @@ export default defineConfig({
     //      outDir: 'dist', //  指定输出路径
     //      assetsDir: 'assets', //   指定生成静态资源的存放路径
     minify: 'terser', //      混淆器，terser构建后文件体积更小
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            return id
+              .toString()
+              .split('node_modules/')[1]
+              .split('/')[0]
+              .toString();
+          }
+        },
+      },
+    },
   },
   //      本地运行配置，及反向代理配置
   server: {
