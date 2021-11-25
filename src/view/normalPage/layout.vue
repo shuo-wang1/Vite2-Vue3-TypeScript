@@ -2,20 +2,20 @@
   <div class="layout">
     <v-header class="header" />
     <router-view class="layout-view"></router-view>
-    <v-Footer class="footer" />
+    <v-footer class="footer" />
   </div>
 </template>
 
 <script lang="ts">
-import VHeader from '../components/layout/header.vue';
-import VFooter from '../components/layout/footer.vue';
+import VHeader from '/@/components/layout/header.vue';
+import VFooter from '/@/components/layout/footer.vue';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
   name: 'index',
   components: {
     'v-header': VHeader,
-    'v-Footer': VFooter,
+    'v-footer': VFooter,
   },
 
   setup() {

@@ -4,11 +4,12 @@
       <div class="wrap-header-logo">HOME</div>
       <div class="wrap-header-user">
         <div class="wrap-header-user-avatar">
-          <!-- <img :src="userData.avatar" alt=""> -->
-          <img :src="userData.avatar" alt="" />
+          <img src="/@/assets/images/avatar.png" alt="" />
+          <!-- <img :src="userData.avatar" alt="" /> -->
         </div>
         <div class="wrap-header-user-name">
-          {{ userData.username }}
+          <!-- {{ userData.username }} -->
+          Mr.Wang
         </div>
         <div class="wrap-header-user-line">|</div>
         <div class="wrap-header-user-logout">退出</div>

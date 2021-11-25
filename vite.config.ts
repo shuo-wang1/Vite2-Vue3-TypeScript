@@ -38,6 +38,12 @@ export default defineConfig({
         },
       },
     },
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+      },
+    },
   },
   //      本地运行配置，及反向代理配置
   server: {

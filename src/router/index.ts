@@ -11,7 +11,7 @@ const routes: Array<RouteRecordRaw> = [
     path: '/layout',
     name: 'layout',
     component: () =>
-      import(/* webpackChunkName: "layout" */ '../view/layout.vue'),
+      import(/* webpackChunkName: "layout" */ '/@/view/normalPage/layout.vue'),
     redirect: () => {
       return { path: '/home/index' };
     },
@@ -20,7 +20,9 @@ const routes: Array<RouteRecordRaw> = [
         path: '/home/index',
         name: 'index',
         component: () =>
-          import(/* webpackChunkName: "index" */ '../view/index/index.vue'),
+          import(
+            /* webpackChunkName: "index" */ '/@/view/normalPage/index/index.vue'
+          ),
         meta: {
           keepAlive: true, // 需要被缓存
           title: '首页',

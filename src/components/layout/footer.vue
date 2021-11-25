@@ -1,5 +1,7 @@
 <template>
-  <footer class="footer">R & D based on Vite2, Vue and TypeScript</footer>
+  <footer class="footer">
+    R & D based on Vite2, Vue and TypeScript
+  </footer>
 </template>
 
 <script lang="ts">
