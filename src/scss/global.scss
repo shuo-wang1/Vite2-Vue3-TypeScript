@@ -4,16 +4,12 @@ $base-color-blue: #0558e7;
 
 $base-color-red-3155: #ff3155;
 
-$baseMobileVw: 3.75;
-
 // 可以适应不同尺寸手机端
 @function px($npx) {
   @return $npx/1920 * 100vw;
 }
 
 $base-font-ch: PingFangSC;
-
-$base-font-en: NokiaPureHeadline;
 
 $base-font-yaHei: MicrosoftYaHei;
 

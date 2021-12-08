@@ -9,7 +9,8 @@
         </div>
         <div class="wrap-header-user-name">
           <!-- {{ userData.username }} -->
-          Mr.Wang
+
+          {{ 'Mr.Wang' + pageType }}
         </div>
         <div class="wrap-header-user-line">|</div>
         <div class="wrap-header-user-logout">退出</div>
@@ -18,7 +19,7 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, inject, reactive } from 'vue';
+import { defineComponent, inject, onMounted, reactive, Ref } from 'vue';
 
 export default defineComponent({
   name: 'VHeader',
@@ -29,14 +30,19 @@ export default defineComponent({
       avatar: state.avatar,
       username: state.nickname,
     });
+
+    const pageType = inject<Ref<string>>('pageType');
+
     const avatarClicked = () => {};
     const usernameClicked = () => {};
+
+    onMounted(() => {});
 
     return {
       avatarClicked,
       usernameClicked,
       userData,
-      state,
+      pageType,
     };
   },
 });
@@ -61,31 +67,34 @@ export default defineComponent({
       font-size: px(17);
       font-family: Microsoft YaHei;
       font-weight: 400;
-      color: #ffffff;
-      &-avatar {
-        cursor: pointer;
-        width: px(48);
-        height: px(48);
-        border-radius: 50%;
-        overflow: hidden;
-        border: px(2) solid #fff;
-        img {
-          width: 100%;
-          height: 100%;
-        }
-      }
-      &-name {
-        cursor: pointer;
-        margin-left: px(10);
-      }
-      &-line {
-        margin-left: px(15);
-      }
-      &-logout {
-        cursor: pointer;
-        margin-left: px(10);
-      }
+      color: black;
     }
+  }
+}
+
+.wrap-header-user {
+  &-avatar {
+    cursor: pointer;
+    width: px(48);
+    height: px(48);
+    border-radius: 50%;
+    overflow: hidden;
+    border: px(2) solid #fff;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &-name {
+    cursor: pointer;
+    margin-left: px(10);
+  }
+  &-line {
+    margin-left: px(15);
+  }
+  &-logout {
+    cursor: pointer;
+    margin-left: px(10);
   }
 }
 </style>

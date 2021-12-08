@@ -1,7 +1,18 @@
 <template>
   <div class="index">
     <main class="index-main">
-      <div class="index-main-container">Mr.Wang的个人主页</div>
+      <div class="index-main-container">
+        <div class="index-main-container-title">生活就在你熟视无睹的瞬间</div>
+        <div
+          class="index-main-container-table"
+          v-for="(item, index) in tableData"
+          :key:number="index"
+        >
+          <div class="index-main-container-table-title">
+            {{ item.title }}
+          </div>
+        </div>
+      </div>
       <aside class="index-main-aside">
         <div class="user-info">
           <div class="user-info-avatar">
@@ -18,17 +29,16 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, reactive, ref, inject, onMounted } from 'vue';
-import { useRouter, useRoute } from 'vue-router';
-import { ElMessage as Message } from 'element-plus';
-import { log } from 'console';
+import { defineComponent, onMounted } from 'vue';
+import dataList from './index';
+//
 // import bgm from '/@/assets/music/a128_1bde_cd7b_99f700e0a7d1cb6e793b8f7b64d82f52.mp3';
 
 export default defineComponent({
   name: 'index',
   setup() {
     // const bgmSrc = bgm;
-
+    let tableData: any = dataList;
     onMounted(() => {
       // let audio = document.querySelector('audio');
       // console.log('audio:', audio);
@@ -36,14 +46,11 @@ export default defineComponent({
     });
 
     return {
+      tableData,
       // bgmSrc
     };
   },
 });
-
-function creted() {
-  throw new Error('Function not implemented.');
-}
 </script>
 
 <style lang="scss" scoped>
@@ -58,9 +65,6 @@ function creted() {
     &-container {
       @include flex-layout(column, nowrap, flex-start, center);
       width: px(1200);
-      padding: px(30) px(20);
-      border-radius: px(15);
-      background-color: #ffffff;
     }
     &-aside {
       @include flex-layout(column, nowrap, flex-start, center);
@@ -72,9 +76,28 @@ function creted() {
   }
 }
 
+.index-main-container {
+  &-title {
+    width: 100%;
+    padding: px(30) px(20);
+    border-radius: px(15);
+    text-align: center;
+    font-size: px(40);
+    color: #000;
+    background-color: #ffffff;
+  }
+  &-table {
+    @include flex-layout(column, nowrap, flex-start, flex-start);
+    width: 100%;
+    padding: px(30) px(20);
+    border-radius: px(15);
+  }
+}
+
 .user-info {
   @include flex-layout(column, nowrap, center, center);
   width: 100%;
+  font-size: px(20);
   &-avatar {
     @include flex-layout(row, nowrap, center, center);
     width: px(150);
@@ -101,5 +124,3 @@ function creted() {
   height: 0;
 }
 </style>
-
-function creted() { throw new Error('Function not implemented.'); }

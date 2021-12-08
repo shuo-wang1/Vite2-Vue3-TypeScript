@@ -7,8 +7,8 @@
 </template>
 
 <script lang="ts">
-import VHeader from '/@/components/layout/header.vue';
-import VFooter from '/@/components/layout/footer.vue';
+import VHeader from '/com/layout/header.vue';
+import VFooter from '/com/layout/footer.vue';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
@@ -21,7 +21,6 @@ export default defineComponent({
   setup() {
     return {};
   },
-  mounted() {},
 });
 </script>
 

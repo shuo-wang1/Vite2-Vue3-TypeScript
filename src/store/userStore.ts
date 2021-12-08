@@ -38,7 +38,7 @@ const state: IUserState = reactive({
   nickname: '',
   id: 0,
   gender: 0,
-  avatar: '../assets/images/WechatIMG39.jpeg',
+  avatar: '/@/assets/images/avatar.png',
 });
 const store: IStore<IUserState> = {
   persistedState: true,
