@@ -3,13 +3,21 @@
     <main class="index-main">
       <div class="index-main-container">
         <div class="index-main-container-title">生活就在你熟视无睹的瞬间</div>
-        <div
-          class="index-main-container-table"
-          v-for="(item, index) in tableData"
-          :key:number="index"
-        >
-          <div class="index-main-container-table-title">
-            {{ item.title }}
+
+        <div class="index-main-container-content">
+          <div>
+            <div
+              class="index-main-container-table"
+              v-for="(item, index) in tableData"
+              :key:number="index"
+            >
+              <div class="index-main-container-table-title">
+                {{ item.title }}
+              </div>
+
+              <div class="index-main-container-table-content"></div>
+            </div>
+            <my-carousel @handlerItemClicked="handlerItemClicked"></my-carousel>
           </div>
         </div>
       </div>
@@ -29,24 +37,32 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, onMounted } from 'vue';
-import dataList from './index';
+import { defineComponent, onMounted, reactive, toRefs } from 'vue';
+import { listDataInterFace, dataList } from './index';
+import myCarousel from '/@/components/Carousel/index.vue';
 //
 // import bgm from '/@/assets/music/a128_1bde_cd7b_99f700e0a7d1cb6e793b8f7b64d82f52.mp3';
 
 export default defineComponent({
   name: 'index',
+  components: { 'my-carousel': myCarousel },
   setup() {
     // const bgmSrc = bgm;
-    let tableData: any = dataList;
+
+    const tableData: listDataInterFace[] = dataList;
     onMounted(() => {
       // let audio = document.querySelector('audio');
       // console.log('audio:', audio);
       // audio?.play();
     });
 
+    const handlerItemClicked = (value: any) => {
+      console.log('value: ', value);
+    };
+
     return {
       tableData,
+      handlerItemClicked,
       // bgmSrc
     };
   },
@@ -86,11 +102,28 @@ export default defineComponent({
     color: #000;
     background-color: #ffffff;
   }
-  &-table {
-    @include flex-layout(column, nowrap, flex-start, flex-start);
+
+  &-content {
     width: 100%;
-    padding: px(30) px(20);
+
+    padding: px(20) px(30) px(50);
+    margin-top: px(30);
     border-radius: px(15);
+    background-color: #fff;
+  }
+}
+
+.index-main-container-content-table {
+  @include flex-layout(column, nowrap, flex-start, flex-start);
+  width: 100%;
+  padding: px(30) px(20);
+
+  background-color: #fff;
+  &-title {
+    width: 100%;
+  }
+  &-content {
+    width: 100%;
   }
 }
 

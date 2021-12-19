@@ -1,17 +1,9 @@
 // 全局公共样式变量
 
-$base-color-blue: #0558e7;
-
-$base-color-red-3155: #ff3155;
-
 // 可以适应不同尺寸手机端
 @function px($npx) {
   @return $npx/1920 * 100vw;
 }
-
-$base-font-ch: PingFangSC;
-
-$base-font-yaHei: MicrosoftYaHei;
 
 @mixin flex-layout(
   $direction: row,
