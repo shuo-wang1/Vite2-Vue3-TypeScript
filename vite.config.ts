@@ -1,14 +1,24 @@
+/*
+ * @Author: Shuo Wang
+ * @Date: 2021-12-20 09:52:17
+ * @LastEditTime: 2021-12-27 09:38:48
+ * @LastEditors: Shuo Wang
+ * @Description:
+ * @FilePath: /vite-vue3-ts-/vite.config.ts
+ * 专业写bug，副业改bug
+ */
 import vue from '@vitejs/plugin-vue';
 import { resolve } from 'path'; //      主要用于alias文件路径别名
+import AutoImport from 'unplugin-auto-import/vite';
 import {
   AntDesignVueResolver,
   ElementPlusResolver,
   ElementUiResolver,
-  HeadlessUiResolver,
   VantResolver,
 } from 'unplugin-vue-components/resolvers';
 import Components from 'unplugin-vue-components/vite';
 import { defineConfig } from 'vite';
+
 //      加别名的函数
 function pathResolve(dir) {
   return resolve(__dirname, '.', dir);
@@ -18,7 +28,15 @@ function pathResolve(dir) {
 export default defineConfig({
   plugins: [
     vue(),
+
     Components({
+      // ui库解析器，也可以自定义
+      resolvers: [
+        ElementPlusResolver(),
+        AntDesignVueResolver(),
+        VantResolver(),
+        ElementUiResolver(),
+      ],
       // 指定组件位置，默认是src/components
       dirs: ['src/components'],
       // ui库解析器
@@ -26,15 +44,16 @@ export default defineConfig({
       extensions: ['vue'],
       // 配置文件生成位置
       dts: true,
-
-      // ui库解析器，也可以自定义
-      resolvers: [
-        ElementPlusResolver(),
-        AntDesignVueResolver(),
-        VantResolver(),
-        HeadlessUiResolver(),
-        ElementUiResolver(),
+    }),
+    AutoImport({
+      include: [
+        /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
+        /\.vue$/,
+        /\.vue\?vue/, // .vue
+        /\.md$/, // .md
       ],
+      dts: true,
+      imports: ['vue', 'vue-router'],
     }),
   ], //       配置需要使用的插件列表，这里将vue添加进去
   //      配置文件别名 vite1.0是/@/  2.0改为/@

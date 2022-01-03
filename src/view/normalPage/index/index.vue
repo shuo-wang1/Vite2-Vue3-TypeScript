@@ -1,3 +1,12 @@
+<!--
+ * @Author: Shuo Wang
+ * @Date: 2021-12-20 09:52:17
+ * @LastEditTime: 2021-12-27 09:43:53
+ * @LastEditors: Shuo Wang
+ * @Description: 首页
+ * @FilePath: /vite-vue3-ts-/src/view/normalPage/index/index.vue
+ * 专业写bug，副业改bug
+-->
 <template>
   <div class="index">
     <main class="index-main">
@@ -12,12 +21,16 @@
               :key:number="index"
             >
               <div class="index-main-container-table-title">
-                {{ item.title }}
+                <!-- {{ item.title }} -->
               </div>
 
               <div class="index-main-container-table-content"></div>
             </div>
-            <my-carousel @handlerItemClicked="handlerItemClicked"></my-carousel>
+
+            <Carousel
+              :height="'250px'"
+              @handlerItemClicked="handlerItemClicked"
+            ></Carousel>
           </div>
         </div>
       </div>
@@ -31,21 +44,22 @@
         </div>
       </aside>
     </main>
+
     <!-- <div class="bgm">
           <audio id="audio" :src="bgmSrc" autoplay loop></audio>
     </div>-->
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, onMounted, reactive, toRefs } from 'vue';
-import { listDataInterFace, dataList } from './index';
-import myCarousel from '/@/components/Carousel/index.vue';
+import { defineComponent, onMounted } from 'vue';
+import { dataList, listDataInterFace } from './index';
+
 //
 // import bgm from '/@/assets/music/a128_1bde_cd7b_99f700e0a7d1cb6e793b8f7b64d82f52.mp3';
 
 export default defineComponent({
   name: 'index',
-  components: { 'my-carousel': myCarousel },
+
   setup() {
     // const bgmSrc = bgm;
 
@@ -74,6 +88,7 @@ export default defineComponent({
   @include flex-layout(column, nowrap, flex-start, center);
   width: 100%;
   padding: px(30) 0;
+  height: 2000px;
   &-main {
     @include flex-layout(row, nowrap, space-between, flex-start);
     width: px(1600);

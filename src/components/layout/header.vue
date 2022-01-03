@@ -1,3 +1,12 @@
+<!--
+ * @Author: Shuo Wang
+ * @Date: 2021-12-20 09:52:17
+ * @LastEditTime: 2021-12-24 10:00:41
+ * @LastEditors: Shuo Wang
+ * @Description:header
+ * @FilePath: /vite-vue3-ts-/src/components/layout/header.vue
+ * 专业写bug，副业改bug
+-->
 <template>
   <div class="wrap">
     <header class="wrap-header">

@@ -7,6 +7,7 @@ declare module 'vue' {
     Carousel: typeof import('./src/components/Carousel/index.vue')['default']
     Footer: typeof import('./src/components/layout/footer.vue')['default']
     Header: typeof import('./src/components/layout/header.vue')['default']
+    ImagePreview: typeof import('./src/components/Carousel/compnents/imagePreview/index.vue')['default']
   }
 }
 

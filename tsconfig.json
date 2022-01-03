@@ -12,12 +12,15 @@
     "types": ["vite/client", "node"],
     "skipLibCheck": true
   },
+
   "include": [
     "src/**/*.ts",
     "src/**/*.d.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
-    "src/view/normalPage/index/index.ts"
+    "components.d.ts",
+    "auto-imports.d.ts"
   ],
+
   "exclude": ["node_modules"]
 }

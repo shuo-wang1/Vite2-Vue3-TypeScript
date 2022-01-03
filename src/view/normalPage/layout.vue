@@ -1,3 +1,12 @@
+<!--
+ * @Author: Shuo Wang
+ * @Date: 2021-12-20 09:52:17
+ * @LastEditTime: 2021-12-24 09:59:11
+ * @LastEditors: Shuo Wang
+ * @Description:  测试页面
+ * @FilePath: /vite-vue3-ts-/src/view/normalPage/layout.vue
+ * 专业写bug，副业改bug
+-->
 <template>
   <div class="layout">
     <v-header class="header" />
@@ -7,9 +16,9 @@
 </template>
 
 <script lang="ts">
-import VHeader from '/com/layout/header.vue';
-import VFooter from '/com/layout/footer.vue';
 import { defineComponent } from 'vue';
+import VFooter from '/com/layout/footer.vue';
+import VHeader from '/com/layout/header.vue';
 
 export default defineComponent({
   name: 'index',
@@ -30,6 +39,7 @@ export default defineComponent({
   @include flex-layout(column, wrap, flex-start, center);
   width: 100%;
   min-height: 100vh;
+  background-color: #f6f6f6;
   background: #e0eafc; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to top,
