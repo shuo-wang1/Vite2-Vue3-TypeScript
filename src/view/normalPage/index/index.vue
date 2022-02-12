@@ -1,7 +1,7 @@
 <!--
  * @Author: Shuo Wang
  * @Date: 2021-12-20 09:52:17
- * @LastEditTime: 2021-12-27 09:43:53
+ * @LastEditTime: 2022-01-20 14:01:10
  * @LastEditors: Shuo Wang
  * @Description: 首页
  * @FilePath: /vite-vue3-ts-/src/view/normalPage/index/index.vue
@@ -18,10 +18,10 @@
             <div
               class="index-main-container-table"
               v-for="(item, index) in tableData"
-              :key:number="index"
+              :key="index"
             >
               <div class="index-main-container-table-title">
-                <!-- {{ item.title }} -->
+                {{ index >= 1 ? (index <= 1 ? '可以' : '不可以') : item.title }}
               </div>
 
               <div class="index-main-container-table-content"></div>

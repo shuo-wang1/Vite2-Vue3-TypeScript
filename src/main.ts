@@ -1,7 +1,7 @@
 /*
  * @Author: Shuo Wang
  * @Date: 2021-06-07 13:35:29
- * @LastEditTime: 2021-12-24 09:59:47
+ * @LastEditTime: 2022-01-27 14:49:38
  * @LastEditors: Shuo Wang
  * @Description: main.ts
  * @FilePath: /vite-vue3-ts-/src/main.ts
