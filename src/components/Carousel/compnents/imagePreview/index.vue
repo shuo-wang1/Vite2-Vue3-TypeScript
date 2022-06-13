@@ -1,7 +1,7 @@
 <!--
  * @Author: Shuo Wang
  * @Date: 2021-12-24 14:15:50
- * @LastEditTime: 2021-12-29 12:15:24
+ * @LastEditTime: 2022-06-13 19:06:14
  * @LastEditors: Shuo Wang
  * @Description: 图片预览组件
  * @FilePath: /vite-vue3-ts-/src/components/Carousel/compnents/imagePreview/index.vue
@@ -10,7 +10,7 @@
 <template>
   <div class="preview">
     <!-- 关闭按钮 -->
-    <div class="preview-close" @click.stop="imagePreviewClose">
+    <div class="preview-close" @click.prevent="imagePreviewClose">
       <svg
         class="icon"
         viewBox="0 0 1024 1024"
@@ -32,13 +32,14 @@
     <img
       :src="previewList[currentImageIndex].imgSrc"
       class="preview-img"
+      :style="`transform:translate(-50%, -50%) scale(${scale}) rotate(${rotate}deg) ;`"
       alt=""
     />
 
     <!-- 按钮 -->
     <div class="preview__button prev">
       <svg
-        @click.stop="handlerPrev"
+        @click.prevent="handlerPrev"
         class="icon"
         width="200"
         height="200"
@@ -52,9 +53,10 @@
         ></path>
       </svg>
     </div>
+
     <div class="preview__button next">
       <svg
-        @click.stop="handlerNext"
+        @click.prevent="handlerNext"
         class="icon"
         viewBox="0 0 1024 1024"
         xmlns="http://www.w3.org/2000/svg"
@@ -71,7 +73,7 @@
     <div class="preview__toolbar">
       <div class="preview__toolbar--buttons">
         <svg
-          @click="handlerControlClick('zoomIn')"
+          @click.prevent="handlerControlClick('zoomIn')"
           class="icon"
           viewBox="0 0 1024 1024"
           xmlns="http://www.w3.org/2000/svg"
@@ -82,7 +84,7 @@
           ></path>
         </svg>
         <svg
-          @click="handlerControlClick('zoomOut')"
+          @click.prevent="handlerControlClick('zoomOut')"
           class="icon"
           viewBox="0 0 1024 1024"
           xmlns="http://www.w3.org/2000/svg"
@@ -93,7 +95,7 @@
           ></path>
         </svg>
         <svg
-          @click="handlerControlClick('fullScreen')"
+          @click.prevent="handlerControlClick('fullScreen')"
           class="icon"
           viewBox="0 0 1024 1024"
           xmlns="http://www.w3.org/2000/svg"
@@ -105,7 +107,7 @@
           ></path>
         </svg>
         <svg
-          @click="handlerControlClick('leftHand')"
+          @click.prevent="handlerControlClick('leftHand')"
           class="icon"
           viewBox="0 0 1024 1024"
           xmlns="http://www.w3.org/2000/svg"
@@ -117,7 +119,7 @@
           ></path>
         </svg>
         <svg
-          @click="handlerControlClick('rightHand')"
+          @click.prevent="handlerControlClick('rightHand')"
           class="icon"
           viewBox="0 0 1024 1024"
           xmlns="http://www.w3.org/2000/svg"
@@ -172,6 +174,9 @@ export default defineComponent({
   },
   emits: ['imagePreviewClose'],
   setup(props, { emit }) {
+    const scale = ref(1);
+    const rotate = ref(0);
+
     const currentImageIndex = ref(props.previewIndex);
     const imagePreviewClose = () => {
       emit('imagePreviewClose', 22);
@@ -235,18 +240,36 @@ export default defineComponent({
       rightHand: '',
     };
 
-    const handlerControlClick = (type: string) => {
+    const handlerControlClick = (type: string): void => {
       if (type === 'zoomIn') {
-        controlClickFn.zoomIn;
+        zoomIn();
       } else if (type === 'zoomOut') {
-        controlClickFn.zoomOut;
+        zoomOut();
       } else if (type === 'fullScreen') {
         controlClickFn.fullScreen;
       } else if (type === 'leftHand') {
-        controlClickFn.leftHand;
+        leftHand();
       } else if (type === 'rightHand') {
-        controlClickFn.rightHand;
+        rightHand();
       }
+    };
+
+    const zoomIn = (): void => {
+      scale.value > 0.2 ? (scale.value -= 0.1) : null;
+    };
+
+    const zoomOut = (): void => {
+      scale.value < 2 ? (scale.value += 0.1) : null;
+    };
+
+    const leftHand = (): void => {
+      rotate.value -= 45;
+      rotate.value == -360 ? (rotate.value = 0) : rotate.value;
+    };
+
+    const rightHand = (): void => {
+      rotate.value += 45;
+      rotate.value == 360 ? (rotate.value = 0) : rotate.value;
     };
 
     onMounted(() => {
@@ -261,6 +284,8 @@ export default defineComponent({
       currentImageIndex,
       startIndex,
       endIndex,
+      scale,
+      rotate,
       imagePreviewClose,
       handlerPrev,
       handlerNext,
@@ -301,7 +326,6 @@ export default defineComponent({
     left: 50%;
     max-width: px(800);
     max-height: px(500);
-    transform: translate(-50%, -50%);
   }
 
   &__button {

@@ -1,7 +1,7 @@
 <!--
  * @Author: Shuo Wang
  * @Date: 2021-12-20 09:52:17
- * @LastEditTime: 2021-12-28 11:25:36
+ * @LastEditTime: 2022-06-13 18:41:37
  * @LastEditors: Shuo Wang
  * @Description:
  * @FilePath: /vite-vue3-ts-/src/components/Carousel/index.vue
@@ -619,6 +619,7 @@ export default defineComponent({
   height: 100%;
   scroll-behavior: smooth;
   &__page {
+    scroll-behavior: smooth;
     cursor: pointer;
     @include flex-layout(row, wrap, space-between, center);
     flex-shrink: 0;

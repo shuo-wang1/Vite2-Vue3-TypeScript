@@ -1,7 +1,7 @@
 <!--
  * @Author: Shuo Wang
  * @Date: 2021-12-20 09:52:17
- * @LastEditTime: 2022-01-20 14:01:10
+ * @LastEditTime: 2022-06-13 18:40:05
  * @LastEditors: Shuo Wang
  * @Description: 首页
  * @FilePath: /vite-vue3-ts-/src/view/normalPage/index/index.vue
@@ -15,7 +15,7 @@
 
         <div class="index-main-container-content">
           <div>
-            <div
+            <!-- <div
               class="index-main-container-table"
               v-for="(item, index) in tableData"
               :key="index"
@@ -25,7 +25,7 @@
               </div>
 
               <div class="index-main-container-table-content"></div>
-            </div>
+            </div> -->
 
             <Carousel
               :height="'250px'"
@@ -40,7 +40,7 @@
             <img src="/@/assets/images/avatar.png" alt="" />
           </div>
           <div class="user-info-username">Mr.Wang</div>
-          <div class="user-info-email">邮箱：845355912@qq.com</div>
+          <div class="user-info-email">邮箱：shuo.wang11@outlook.com</div>
         </div>
       </aside>
     </main>
